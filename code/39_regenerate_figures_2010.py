@@ -149,6 +149,15 @@ ax.axhline(5.0, color="#999999", lw=0.9, ls=":", zorder=1)
 ax.text(2013.5, 15, "5% calibration baseline (P95 of 2010–2017 by construction)",
         ha="center", va="center", fontsize=11, color="#666666", style="italic")
 
+# Grammarly freemium launch — single vertical reference line at conf 2016
+# (the first SSWR cycle whose April 2015 submission deadline could plausibly
+# carry Grammarly polish; freemium product launched calendar 2015).
+# Stops short of the legend area at the top.
+ax.vlines(2016, 0, 78, colors="#404040", linestyles="--",
+          linewidth=1.0, alpha=0.85, zorder=2)
+ax.text(2016.15, 79, "Grammarly freemium launch (May 2015)",
+        ha="left", va="bottom", fontsize=9, color="#404040")
+
 # Plot lines
 for name, ys, color in detectors:
     ax.plot(years, ys, color=color, lw=2.8, marker="o", markersize=7.0,
