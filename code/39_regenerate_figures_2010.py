@@ -119,7 +119,7 @@ fig, ax = plt.subplots(figsize=(13.5, 8.0), dpi=160)
 # Era shading
 ax.axvspan(2010, 2017, color="#f3f3f3", alpha=0.55, zorder=0)
 ax.axvspan(2023.5, 2024.5, color="#FFE8C7", alpha=0.55, zorder=0)
-ax.axvspan(2024.5, 2026.5, color="#FFCC8A", alpha=0.55, zorder=0)
+ax.axvspan(2024.5, 2026,   color="#FFCC8A", alpha=0.55, zorder=0)
 
 # Era legend — only the two exposure bands. The gray calibration window
 # is labeled inline (below) rather than in the legend, because gray would
@@ -148,7 +148,7 @@ ax.axhline(5.0, color="#999999", lw=0.9, ls=":", zorder=1)
 # Inline label sitting inside the gray band — names what gray means.
 # Replaces the legend entry the gray band used to have. Aligned vertically
 # with the EditLens Llama-3.2-3B end label (~y=83) for visual balance.
-ax.text(2013.5, 80, "Calibration window\n(conf 2010–2017)",
+ax.text(2013.5, 80, "Calibration window (conf 2010–2017)",
         ha="center", va="center", fontsize=11, color="black", style="italic")
 
 # 5% threshold label, anchored at the right edge directly above the dotted
@@ -167,7 +167,7 @@ ax.vlines(GRAMMARLY_X, 0, 20, colors="#404040", linestyles="--",
 ax.plot([GRAMMARLY_X], [20], marker="o", color="#404040", markersize=8,
         markeredgecolor="white", markeredgewidth=1.0, zorder=3,
         linestyle="none")
-ax.text(GRAMMARLY_X - 0.08, 20, "Grammarly freemium launch (May 2015)",
+ax.text(GRAMMARLY_X - 0.30, 20, "Grammarly freemium launch (May 2015)",
         ha="right", va="center", fontsize=11, color="#404040")
 
 # Plot lines
