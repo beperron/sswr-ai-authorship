@@ -328,24 +328,34 @@ for col, key, label in [("score_editlens","EditLens_RoBERTa_large","EditLens R")
 
 # Prior-submissions cohort
 print("\nPrior-submissions cohort")
+# Per the original method note, prior_n counts ALL submissions by the
+# canonical author (any author position), not only first-author submissions.
 auth_full = pd.read_csv(ROOT/"data"/"sswr_paper_authors.csv",
                         dtype=str, keep_default_na=False)
 papers_year = pd.read_csv(ROOT/"data"/"sswr_papers.csv",
                           usecols=["id","year"])
 papers_year.columns = ["paper_id","year"]
 papers_year["paper_id"] = papers_year["paper_id"].astype(str)
-firsts_all = auth_full[auth_full.author_order=="1"].copy()
-firsts_all = firsts_all.merge(papers_year, on="paper_id", how="left")
-firsts_all["year"] = pd.to_numeric(firsts_all.year, errors="coerce")
-firsts_all = firsts_all.dropna(subset=["year"])
-firsts_all["year"] = firsts_all["year"].astype(int)
+auth_full = auth_full.merge(papers_year, on="paper_id", how="left")
+auth_full["year"] = pd.to_numeric(auth_full.year, errors="coerce")
+auth_full = auth_full.dropna(subset=["year"])
+auth_full["year"] = auth_full["year"].astype(int)
 
+# For each first-author abstract, prior_n = count of earlier (year < current
+# year) submissions by that canonical author across the full 2005-2026
+# archive, deduplicated to (canonical_author_id, paper_id) pairs (so a
+# canonical author appearing at multiple positions on the same paper counts
+# that paper exactly once).
+auth_dedupe = auth_full.drop_duplicates(["canonical_author_id","paper_id"])
+firsts_only = auth_full[auth_full.author_order=="1"].drop_duplicates("paper_id").copy()
+canonical_year_lists = (auth_dedupe.groupby("canonical_author_id")["year"]
+                                    .apply(list).to_dict())
 prior_count = {}
-for canon, group in firsts_all.groupby("canonical_author_id"):
-    years_sorted = sorted(group.year.tolist())
-    seen = 0
-    for paper_id, py in zip(group.paper_id, group.year):
-        prior_count[paper_id] = sum(1 for y in years_sorted if y < py)
+for paper_id, canon, py in zip(firsts_only.paper_id,
+                                firsts_only.canonical_author_id,
+                                firsts_only.year):
+    years = canonical_year_lists.get(canon, [])
+    prior_count[paper_id] = sum(1 for y in years if y < py)
 
 df["prior_n"] = df.id.map(prior_count)
 def bucket(n):
@@ -370,25 +380,32 @@ for det_col, det_name in [("bin_e","EditLens RoBERTa-large"),
                              "pct": round(sub[det_col].mean()*100, 2)})
     ps_rates[det_name] = rows
 
-# DiD: new vs established (ref), no-exp vs full
+# DiD: established (ref) vs new and early; no-exp vs full
 ps_did = {}
 for det_col, det_name in [("bin_e","EditLens_RoBERTa_large"),
                            ("bin_l","EditLens_Llama_3_2_3B"),
                            ("bin_d","desklib_academic")]:
-    sub = df[df.prior_bucket.isin(["new","established"]) & (NO_EXP | FULL)].copy()
-    sub["post"] = FULL.loc[sub.index].astype(int)
-    sub["new"] = (sub.prior_bucket=="new").astype(int)
-    sub["new_post"] = sub.new * sub.post
-    X = sm.add_constant(sub[["post","new","new_post"]])
+    sub = df[df.prior_bucket.isin(["new","early","established"]) & (NO_EXP | FULL)].copy()
+    sub["post"]   = FULL.loc[sub.index].astype(int)
+    sub["new"]    = (sub.prior_bucket=="new").astype(int)
+    sub["early"]  = (sub.prior_bucket=="early").astype(int)
+    sub["new_post"]   = sub["new"] * sub.post
+    sub["early_post"] = sub["early"] * sub.post
+    X = sm.add_constant(sub[["post","new","early","new_post","early_post"]])
     mod = sm.OLS(sub[det_col], X).fit(cov_type="cluster", cov_kwds={"groups": sub.year.values})
-    ci = mod.conf_int(0.05).loc["new_post"]
+    ci_n = mod.conf_int(0.05).loc["new_post"]
+    ci_e = mod.conf_int(0.05).loc["early_post"]
     ps_did[det_name] = {
-        "new_x_full_pp": float(mod.params["new_post"]*100),
-        "ci95_lo_pp": float(ci.iloc[0]*100),
-        "ci95_hi_pp": float(ci.iloc[1]*100),
-        "p": float(mod.pvalues["new_post"]),
+        "new_x_full_pp":   float(mod.params["new_post"]*100),
+        "new_ci95_lo_pp":  float(ci_n.iloc[0]*100),
+        "new_ci95_hi_pp":  float(ci_n.iloc[1]*100),
+        "new_p":           float(mod.pvalues["new_post"]),
+        "early_x_full_pp": float(mod.params["early_post"]*100),
+        "early_ci95_lo_pp":float(ci_e.iloc[0]*100),
+        "early_ci95_hi_pp":float(ci_e.iloc[1]*100),
+        "early_p":         float(mod.pvalues["early_post"]),
     }
-    print(f"  {det_name}: new × Full = {mod.params['new_post']*100:+.2f} pp  CI95=[{ci.iloc[0]*100:+.2f}, {ci.iloc[1]*100:+.2f}]  p={mod.pvalues['new_post']:.4g}")
+    print(f"  {det_name}: new × Full = {mod.params['new_post']*100:+.2f}  early × Full = {mod.params['early_post']*100:+.2f}")
 
 (RES/"prior_submissions_analysis.json").write_text(json.dumps({
     "method_note": "For each abstract, the first author's canonical_author_id was looked up in the harmonized SSWR History Database, and prior_n was computed as the count of earlier (year < current_year) submissions by that canonical author across the full archive. Buckets: new=0 prior, early=1-2 prior, established=3+ prior. Analytic window: conf 2010-2026. P95 thresholds calibrated on conf 2010-2015.",
