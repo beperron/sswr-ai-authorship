@@ -203,6 +203,12 @@ shown = yearly_fre[yearly_fre.year >= 2017]
 
 fig, ax = plt.subplots(figsize=(12.5, 7.0), dpi=160)
 
+# Era shading — same scheme as Figure 1 (no-exposure / partial / full).
+# Bands replace the previous ChatGPT-release dashed reference line.
+ax.axvspan(2016.3,  2023.5, color="#f3f3f3", alpha=0.55, zorder=0)
+ax.axvspan(2023.5,  2024.5, color="#FFE8C7", alpha=0.55, zorder=0)
+ax.axvspan(2024.5,  2026.6, color="#FFCC8A", alpha=0.55, zorder=0)
+
 ax.fill_between(shown.year, shown.lo, shown.hi,
                 color=TEAL_FILL, alpha=0.7, zorder=2)
 ax.plot(shown.year, shown["mean"], color=TEAL_LINE, lw=2.6,
@@ -210,18 +216,22 @@ ax.plot(shown.year, shown["mean"], color=TEAL_LINE, lw=2.6,
         markeredgewidth=1.2, zorder=3)
 ax.axhline(0, color="#bbbbbb", lw=0.9, zorder=1)
 
-# Vertical reference lines with rotated inline labels — placed at the very
-# bottom of the chart so the rotated text does not extend up into the
-# data line (which descends through the dashed-line region)
-ax.axvline(2023.5, color="#444444", lw=1.1, ls="--", zorder=2)
-ax.text(2023.42, -1.85, "ChatGPT release (Nov 2022)",
-        ha="right", va="bottom", fontsize=11, color="#222222",
-        rotation=90, style="italic")
-
-ax.axvline(2024.5, color="#444444", lw=1.1, ls="--", zorder=2)
-ax.text(2024.58, -1.85, "Full exposure (conf 2025)",
-        ha="left", va="bottom", fontsize=11, color="#222222",
-        rotation=90, style="italic")
+# Era legend (upper-right, where the data line is high and space is empty)
+era_handles = [
+    mpatches.Patch(facecolor="#f3f3f3", edgecolor="#bbbbbb",
+                   label="No LLM exposure  (conf 2017–2023)"),
+    mpatches.Patch(facecolor="#FFE8C7", edgecolor="#bbbbbb",
+                   label="Partial exposure  (conf 2024)"),
+    mpatches.Patch(facecolor="#FFCC8A", edgecolor="#bbbbbb",
+                   label="Full exposure  (conf 2025–2026)"),
+]
+era_legend = ax.legend(handles=era_handles, loc="upper right",
+                       bbox_to_anchor=(0.99, 0.99),
+                       fontsize=11, frameon=True, facecolor="white",
+                       edgecolor="#cccccc", borderpad=0.7,
+                       handlelength=1.6, handleheight=1.1,
+                       labelcolor="#222222")
+era_legend.get_frame().set_linewidth(0.8)
 
 # Y axis
 ax.set_ylabel("Flesch Reading Ease (SD units, 2010–2017 baseline)",
