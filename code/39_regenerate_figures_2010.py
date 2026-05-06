@@ -146,14 +146,15 @@ era_legend.get_frame().set_linewidth(0.8)
 ax.axhline(5.0, color="#999999", lw=0.9, ls=":", zorder=1)
 
 # Inline label sitting inside the gray band — names what gray means.
-# Replaces the legend entry the gray band used to have.
-ax.text(2013.5, 65, "Calibration window\n(conf 2010–2017)",
+# Replaces the legend entry the gray band used to have. Aligned vertically
+# with the EditLens Llama-3.2-3B end label (~y=83) for visual balance.
+ax.text(2013.5, 80, "Calibration window\n(conf 2010–2017)",
         ha="center", va="center", fontsize=11, color="black", style="italic")
 
 # 5% threshold label, anchored at the right edge directly above the dotted
 # line so the line itself acts as the visual leader (no arrow needed).
-ax.text(2030.3, 6.5, "5 % P95 threshold",
-        ha="right", va="bottom", fontsize=11, color="#666666", style="italic")
+ax.text(2030.3, 6.5, "5% P95 threshold",
+        ha="right", va="bottom", fontsize=11, color="black", style="italic")
 
 # Grammarly freemium launch — vertical reference line placed at the
 # calendar-time position of May 2015 on the conference-year axis (rather
@@ -161,7 +162,7 @@ ax.text(2030.3, 6.5, "5 % P95 threshold",
 # y=20 anchors the inline label, which sits to the left of the line and
 # terminates at the marker.
 GRAMMARLY_X = 2015.4   # ≈ May 2015 on a year-decimal axis
-ax.vlines(GRAMMARLY_X, 0, 78, colors="#404040", linestyles="--",
+ax.vlines(GRAMMARLY_X, 0, 20, colors="#404040", linestyles="--",
           linewidth=1.0, alpha=0.85, zorder=2)
 ax.plot([GRAMMARLY_X], [20], marker="o", color="#404040", markersize=8,
         markeredgecolor="white", markeredgewidth=1.0, zorder=3,
