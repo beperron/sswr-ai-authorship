@@ -1,0 +1,211 @@
+{
+  "method_note": "First-time submitters are defined as canonical first authors with zero prior submissions (any author position) across the 2005-2026 SSWR archive, deduplicated to (canonical_author_id, paper_id) pairs. Rank is taken from the first author's fa_rank field in data/corpus_preprocessed.pkl. Analytic window: conf 2010-2026.",
+  "n_first_timers_with_rank": 5381,
+  "rank_distribution_overall": {
+    "Doctoral student": {
+      "n": 2198,
+      "pct": 40.8
+    },
+    "Postdoc": {
+      "n": 132,
+      "pct": 2.5
+    },
+    "Assistant professor": {
+      "n": 662,
+      "pct": 12.3
+    },
+    "Associate professor": {
+      "n": 255,
+      "pct": 4.7
+    },
+    "Full professor": {
+      "n": 170,
+      "pct": 3.2
+    },
+    "Other / unclassified": {
+      "n": 1964,
+      "pct": 36.5
+    }
+  },
+  "career_stage_summary": {
+    "early_career_doc_postdoc_assistant_pct": 87.6,
+    "mid_career_associate_pct": 7.5,
+    "senior_full_pct": 5.0,
+    "other_excluded_n": 1964
+  },
+  "rank_x_exposure_period_first_timers_n_and_pct": {
+    "no_exposure": {
+      "n_total": 4229,
+      "by_rank": {
+        "doctoral": {
+          "n": 1744,
+          "pct": 41.2
+        },
+        "postdoc": {
+          "n": 108,
+          "pct": 2.6
+        },
+        "assistant": {
+          "n": 545,
+          "pct": 12.9
+        },
+        "associate": {
+          "n": 214,
+          "pct": 5.1
+        },
+        "full": {
+          "n": 132,
+          "pct": 3.1
+        },
+        "other": {
+          "n": 1486,
+          "pct": 35.1
+        }
+      }
+    },
+    "partial": {
+      "n_total": 314,
+      "by_rank": {
+        "doctoral": {
+          "n": 116,
+          "pct": 36.9
+        },
+        "postdoc": {
+          "n": 5,
+          "pct": 1.6
+        },
+        "assistant": {
+          "n": 37,
+          "pct": 11.8
+        },
+        "associate": {
+          "n": 9,
+          "pct": 2.9
+        },
+        "full": {
+          "n": 13,
+          "pct": 4.1
+        },
+        "other": {
+          "n": 134,
+          "pct": 42.7
+        }
+      }
+    },
+    "full": {
+      "n_total": 838,
+      "by_rank": {
+        "doctoral": {
+          "n": 338,
+          "pct": 40.3
+        },
+        "postdoc": {
+          "n": 19,
+          "pct": 2.3
+        },
+        "assistant": {
+          "n": 80,
+          "pct": 9.5
+        },
+        "associate": {
+          "n": 32,
+          "pct": 3.8
+        },
+        "full": {
+          "n": 25,
+          "pct": 3.0
+        },
+        "other": {
+          "n": 344,
+          "pct": 41.1
+        }
+      }
+    }
+  },
+  "above_P95_rate_first_timers_by_rank_x_exposure_EditLens_R": {
+    "doctoral": {
+      "no_exposure": {
+        "n": 1744,
+        "pct_above_P95": 8.94
+      },
+      "partial": {
+        "n": 116,
+        "pct_above_P95": 17.24
+      },
+      "full": {
+        "n": 338,
+        "pct_above_P95": 49.41
+      }
+    },
+    "postdoc": {
+      "no_exposure": {
+        "n": 108,
+        "pct_above_P95": 6.48
+      },
+      "partial": {
+        "n": 5,
+        "pct_above_P95": 40.0
+      },
+      "full": {
+        "n": 19,
+        "pct_above_P95": 36.84
+      }
+    },
+    "assistant": {
+      "no_exposure": {
+        "n": 545,
+        "pct_above_P95": 6.79
+      },
+      "partial": {
+        "n": 37,
+        "pct_above_P95": 13.51
+      },
+      "full": {
+        "n": 80,
+        "pct_above_P95": 40.0
+      }
+    },
+    "associate": {
+      "no_exposure": {
+        "n": 214,
+        "pct_above_P95": 6.07
+      },
+      "partial": {
+        "n": 9,
+        "pct_above_P95": 22.22
+      },
+      "full": {
+        "n": 32,
+        "pct_above_P95": 53.12
+      }
+    },
+    "full": {
+      "no_exposure": {
+        "n": 132,
+        "pct_above_P95": 4.55
+      },
+      "partial": {
+        "n": 13,
+        "pct_above_P95": 15.38
+      },
+      "full": {
+        "n": 25,
+        "pct_above_P95": 56.0
+      }
+    },
+    "other": {
+      "no_exposure": {
+        "n": 1486,
+        "pct_above_P95": 7.34
+      },
+      "partial": {
+        "n": 134,
+        "pct_above_P95": 21.64
+      },
+      "full": {
+        "n": 344,
+        "pct_above_P95": 53.2
+      }
+    }
+  }
+}
