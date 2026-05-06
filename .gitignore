@@ -1,0 +1,65 @@
+# ──────────────────────────────────────────────────────────────────────────
+# .gitignore — SSWR AI-Authorship Detection
+# ──────────────────────────────────────────────────────────────────────────
+
+# ── Archive (kept locally for traceability; not pushed to public repo) ──
+archive/
+
+# ── Private working notes for Claude (session-resume context) ───────────
+CLAUDE.md
+
+# ── Python ──────────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ── Operating-system artifacts ──────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Office lock files ───────────────────────────────────────────────────
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# ── Model files (HuggingFace cache lives at ~/.cache/huggingface/hub/, ──
+#    outside the repo; these patterns catch any locally-saved checkpoints)
+models/
+*.safetensors
+*.bin
+*.pth
+*.pt
+*.onnx
+*.gguf
+*.msgpack
+*.ot
+
+# ── Corpus and detector-score data ──────────────────────────────────────
+# The corpus (sswr_papers.csv, sswr_paper_authors.csv) is distributed
+# separately as the SSWR History Database (Perron et al., in press); see
+# README for the download link. Detector-score pickles are not
+# redistributable per the pre-registration ethics statement; reviewers
+# regenerate them locally by running the scoring scripts on the corpus.
+data/*.csv
+data/metadata.json
+data/*.pkl
+
+# ── Manuscript and reference PDFs (not redistributed in this repo) ──────
+reports/
+*.pdf
+*.docx
+
+# ── Editor / IDE ────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

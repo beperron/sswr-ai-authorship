@@ -1,0 +1,67 @@
+{
+  "intervention_pre_specified_conference_year": 2025,
+  "search_window": [
+    2009,
+    2026
+  ],
+  "mean_score": {
+    "pettitt_change_after_year": 2017,
+    "pettitt_K": 81.0,
+    "pettitt_p_approx": 0.0033406507302794937,
+    "binseg_change_after_year_n1": 2023,
+    "binseg_multi_breaks": {
+      "n_bkps=1": [
+        2023
+      ],
+      "n_bkps=2": [
+        2018,
+        2023
+      ],
+      "n_bkps=3": [
+        2013,
+        2018,
+        2023
+      ]
+    }
+  },
+  "pct_binary": {
+    "pettitt_change_after_year": 2017,
+    "pettitt_K": 81.0,
+    "pettitt_p_approx": 0.0033406507302794937,
+    "binseg_change_after_year_n1": 2023,
+    "binseg_multi_breaks": {
+      "n_bkps=1": [
+        2023
+      ],
+      "n_bkps=2": [
+        2018,
+        2023
+      ],
+      "n_bkps=3": [
+        2013,
+        2018,
+        2023
+      ]
+    }
+  },
+  "pct_ai_edited_or_ai": {
+    "pettitt_change_after_year": 2017,
+    "pettitt_K": 81.0,
+    "pettitt_p_approx": 0.0033406507302794937,
+    "binseg_change_after_year_n1": 2023,
+    "binseg_multi_breaks": {
+      "n_bkps=1": [
+        2023
+      ],
+      "n_bkps=2": [
+        2018,
+        2023
+      ],
+      "n_bkps=3": [
+        2013,
+        2018,
+        2023
+      ]
+    }
+  }
+}

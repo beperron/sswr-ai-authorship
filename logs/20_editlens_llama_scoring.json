@@ -1,0 +1,22 @@
+{
+  "adapter_id": "pangram/editlens_Llama-3.2-3B",
+  "base_id": "meta-llama/Llama-3.2-3B",
+  "device": "mps",
+  "max_length": 1024,
+  "batch_size": 4,
+  "dtype": "fp16",
+  "n_buckets": 4,
+  "n_scored": 23778,
+  "score_summary": {
+    "count": 23778.0,
+    "unique": 23754.0,
+    "top": 0.169263,
+    "freq": 3.0
+  },
+  "bucket_distribution": {
+    "0": 21595,
+    "1": 1372,
+    "2": 4,
+    "3": 807
+  }
+}

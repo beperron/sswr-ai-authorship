@@ -1,0 +1,209 @@
+{
+  "spec": "DiD on no-exposure (conf 2010-2023) vs full-exposure (conf 2025-2026); partial 2024 dropped; year-clustered SEs; US = reference; P95 thresholds calibrated on conf 2010-2017.",
+  "calibration_window": "2010-2017",
+  "P95_thresholds": {
+    "EditLens_R": 0.10856929160654545,
+    "EditLens_Llama": 0.062271195277571564,
+    "desklib_acad": 0.9986288338899613
+  },
+  "reference_category": "US",
+  "cohort_definition": {
+    "US": [
+      "USA",
+      "United States",
+      "US"
+    ],
+    "Other_Anglophone": [
+      "Australia",
+      "Canada",
+      "Ireland",
+      "New Zealand",
+      "United Kingdom"
+    ],
+    "Non_Anglophone": "all other countries with non-empty fa_country"
+  },
+  "cells": {
+    "EditLens_RoBERTa_large": {
+      "US": {
+        "no_exposure": {
+          "n": 14916,
+          "pct_above_P95": 7.82
+        },
+        "partial": {
+          "n": 1309,
+          "pct_above_P95": 18.49
+        },
+        "full": {
+          "n": 3180,
+          "pct_above_P95": 43.87
+        }
+      },
+      "Other_Anglophone": {
+        "no_exposure": {
+          "n": 612,
+          "pct_above_P95": 8.5
+        },
+        "partial": {
+          "n": 65,
+          "pct_above_P95": 27.69
+        },
+        "full": {
+          "n": 121,
+          "pct_above_P95": 52.89
+        }
+      },
+      "Non_Anglophone": {
+        "no_exposure": {
+          "n": 818,
+          "pct_above_P95": 3.18
+        },
+        "partial": {
+          "n": 131,
+          "pct_above_P95": 16.03
+        },
+        "full": {
+          "n": 362,
+          "pct_above_P95": 50.0
+        }
+      }
+    },
+    "EditLens_Llama_3_2_3B": {
+      "US": {
+        "no_exposure": {
+          "n": 14916,
+          "pct_above_P95": 12.62
+        },
+        "partial": {
+          "n": 1309,
+          "pct_above_P95": 46.22
+        },
+        "full": {
+          "n": 3180,
+          "pct_above_P95": 72.48
+        }
+      },
+      "Other_Anglophone": {
+        "no_exposure": {
+          "n": 612,
+          "pct_above_P95": 20.1
+        },
+        "partial": {
+          "n": 65,
+          "pct_above_P95": 60.0
+        },
+        "full": {
+          "n": 121,
+          "pct_above_P95": 74.38
+        }
+      },
+      "Non_Anglophone": {
+        "no_exposure": {
+          "n": 818,
+          "pct_above_P95": 14.55
+        },
+        "partial": {
+          "n": 131,
+          "pct_above_P95": 54.96
+        },
+        "full": {
+          "n": 362,
+          "pct_above_P95": 85.08
+        }
+      }
+    },
+    "desklib_academic": {
+      "US": {
+        "no_exposure": {
+          "n": 14916,
+          "pct_above_P95": 6.5
+        },
+        "partial": {
+          "n": 1309,
+          "pct_above_P95": 14.51
+        },
+        "full": {
+          "n": 3180,
+          "pct_above_P95": 44.75
+        }
+      },
+      "Other_Anglophone": {
+        "no_exposure": {
+          "n": 612,
+          "pct_above_P95": 6.05
+        },
+        "partial": {
+          "n": 65,
+          "pct_above_P95": 20.0
+        },
+        "full": {
+          "n": 121,
+          "pct_above_P95": 41.32
+        }
+      },
+      "Non_Anglophone": {
+        "no_exposure": {
+          "n": 818,
+          "pct_above_P95": 2.81
+        },
+        "partial": {
+          "n": 131,
+          "pct_above_P95": 20.61
+        },
+        "full": {
+          "n": 362,
+          "pct_above_P95": 60.77
+        }
+      }
+    }
+  },
+  "did_full_vs_no_exposure": {
+    "EditLens_RoBERTa_large": {
+      "Other_Anglophone_x_Full": {
+        "coef_pp": 8.35,
+        "ci_lo": 2.46,
+        "ci_hi": 14.23,
+        "p": 0.00542755306444298,
+        "se_pp": 3.001
+      },
+      "Non_Anglophone_x_Full": {
+        "coef_pp": 10.77,
+        "ci_lo": 8.99,
+        "ci_hi": 12.55,
+        "p": 2.63685724647148e-32,
+        "se_pp": 0.91
+      }
+    },
+    "EditLens_Llama_3_2_3B": {
+      "Other_Anglophone_x_Full": {
+        "coef_pp": -5.58,
+        "ci_lo": -13.93,
+        "ci_hi": 2.78,
+        "p": 0.1907102231263269,
+        "se_pp": 4.263
+      },
+      "Non_Anglophone_x_Full": {
+        "coef_pp": 10.67,
+        "ci_lo": 6.8,
+        "ci_hi": 14.55,
+        "p": 6.653336813717813e-08,
+        "se_pp": 1.977
+      }
+    },
+    "desklib_academic": {
+      "Other_Anglophone_x_Full": {
+        "coef_pp": -2.98,
+        "ci_lo": -5.89,
+        "ci_hi": -0.06,
+        "p": 0.04537042747348342,
+        "se_pp": 1.487
+      },
+      "Non_Anglophone_x_Full": {
+        "coef_pp": 19.71,
+        "ci_lo": 10.78,
+        "ci_hi": 28.63,
+        "p": 1.5010109581202289e-05,
+        "se_pp": 4.553
+      }
+    }
+  }
+}

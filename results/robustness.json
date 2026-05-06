@@ -1,0 +1,162 @@
+{
+  "R1_ITS_recentered": {
+    "mean_score": {
+      "label": "mean_score",
+      "intervention_year": 2025,
+      "intercept": 0.7686171750017698,
+      "pre_slope_per_yr": 0.015301925884056886,
+      "level_change_at_intervention": 0.006226563646610694,
+      "level_change_p": 0.856934273844696,
+      "level_change_99CI": [
+        -0.08273914028222915,
+        0.09519226757545055
+      ],
+      "slope_change_per_yr": 0.0807860398727239,
+      "slope_change_p": 1.5995807623227466e-79,
+      "post_slope_per_yr": 0.09608796575678079
+    },
+    "pct_binary": {
+      "label": "pct_binary",
+      "intervention_year": 2025,
+      "intercept": 0.0973533514604164,
+      "pre_slope_per_yr": 0.004418210903229872,
+      "level_change_at_intervention": 0.17573901801749459,
+      "level_change_p": 1.2233240374438738e-170,
+      "level_change_99CI": [
+        0.15948236054251658,
+        0.1919956754924726
+      ],
+      "slope_change_per_yr": 0.2600347329280247,
+      "slope_change_p": 0.0,
+      "post_slope_per_yr": 0.26445294383125456
+    },
+    "pct_ai_edited_or_ai": {
+      "label": "pct_ai_edited_or_ai",
+      "intervention_year": 2025,
+      "intercept": 0.17354873565718199,
+      "pre_slope_per_yr": 0.007427322061309574,
+      "level_change_at_intervention": 0.1666692792596276,
+      "level_change_p": 8.002320388109317e-137,
+      "level_change_99CI": [
+        0.14942582635331803,
+        0.18391273216593718
+      ],
+      "slope_change_per_yr": 0.24116874898770121,
+      "slope_change_p": 0.0,
+      "post_slope_per_yr": 0.2485960710490108
+    }
+  },
+  "R2_logit_sensitivity": {
+    "intercept_at_intervention": 2.0983752609368587,
+    "level_change": 0.8882535012215251,
+    "level_change_p": 7.426050465207165e-05,
+    "slope_change": 1.8142078193725697,
+    "slope_change_p": 0.0,
+    "yearly_logit_means": {
+      "2005": -0.8774,
+      "2006": -0.8087,
+      "2007": -0.7974,
+      "2008": -0.4077,
+      "2009": 0.9436,
+      "2010": 1.2064,
+      "2011": 1.1457,
+      "2012": 1.1415,
+      "2013": 1.0537,
+      "2014": 1.018,
+      "2015": 1.1361,
+      "2016": 1.1202,
+      "2017": 1.262,
+      "2018": 1.312,
+      "2019": 1.3677,
+      "2020": 1.3812,
+      "2021": 1.4797,
+      "2022": 1.6029,
+      "2023": 1.4171,
+      "2024": 1.6968,
+      "2025": 2.9866,
+      "2026": 4.9179
+    },
+    "interpretation": "Logit-transformed mean score is unbounded; if the original-scale result is driven purely by detector saturation, the logit version should be much weaker."
+  },
+  "R3_excluding_2026": {
+    "mean_score": {
+      "label": "mean_score",
+      "level_change": 0.0062265636466104,
+      "level_change_p": 0.8569342738447041,
+      "slope_change_per_yr": 0.0,
+      "slope_change_p": NaN
+    },
+    "pct_binary": {
+      "label": "pct_binary",
+      "level_change": 0.17573901801749478,
+      "level_change_p": 1.2233240374844664e-170,
+      "slope_change_per_yr": 0.0,
+      "slope_change_p": NaN
+    },
+    "pct_ai_edited_or_ai": {
+      "label": "pct_ai_edited_or_ai",
+      "level_change": 0.16666927925962774,
+      "level_change_p": 8.002320388174468e-137,
+      "slope_change_per_yr": 0.0,
+      "slope_change_p": NaN
+    }
+  },
+  "R4_qualquant_year_clustered": {
+    "score_primary": {
+      "qual_post_beta": 0.007072768882319099,
+      "qual_post_se": 0.01230646634735154,
+      "qual_post_p": 0.5654808690161942,
+      "post_beta": 0.18911254750822867,
+      "post_p": 4.781250826602629e-08
+    },
+    "label_binary": {
+      "qual_post_beta": -0.0984262516980058,
+      "qual_post_se": 0.005643988239991738,
+      "qual_post_p": 4.1635473048212034e-68,
+      "post_beta": 0.40388451816086385,
+      "post_p": 2.7941938612080693e-05
+    }
+  },
+  "R5_farank_year_clustered": {
+    "score_primary": {
+      "assistant_post_beta": 0.14512956839387556,
+      "assistant_post_p": 0.0006847551513924657,
+      "differential_post_beta": {
+        "associate": 0.01805635185598643,
+        "full": -0.0018261250081650577,
+        "postdoc": -0.019912406883121837,
+        "doctoral": 0.008384752088270641
+      },
+      "differential_post_p": {
+        "associate": 0.35898179120115736,
+        "full": 0.9476066809405806,
+        "postdoc": 0.44437682944256507,
+        "doctoral": 0.5752098579383551
+      }
+    },
+    "label_binary": {
+      "assistant_post_beta": 0.32402898097820115,
+      "assistant_post_p": 0.0003973567898126959,
+      "differential_post_beta": {
+        "associate": -0.009481180733998716,
+        "full": -0.020281446461438188,
+        "postdoc": -0.059444563140270884,
+        "doctoral": 0.0812808250590008
+      },
+      "differential_post_p": {
+        "associate": 0.6758668707909521,
+        "full": 0.6348115465564933,
+        "postdoc": 0.29429898326523585,
+        "doctoral": 7.128171255087789e-06
+      }
+    }
+  },
+  "R7_within_calibration_drift": {
+    "slopes_per_year_2009_2017": {
+      "mean_score": 0.0020808339375768636,
+      "pct_binary": 0.00012754425108811896,
+      "pct_ai_edited_or_ai": 0.0013054332497910478
+    },
+    "interpretation": "Mean continuous score has a small positive drift even within the calibration window (~+0.005/yr), explaining the placebo p=0.003 for mean_score. The discrete proportions are more robust."
+  }
+}

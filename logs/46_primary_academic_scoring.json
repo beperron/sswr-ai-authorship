@@ -1,0 +1,15 @@
+{
+  "model_id": "desklib/ai-text-detector-academic-v1.01",
+  "device": "mps",
+  "max_length": 768,
+  "truncation_side": "default (right; keeps front of text)",
+  "batch_size": 16,
+  "n_scored": 23778,
+  "score_summary": {
+    "count": 23778.0,
+    "unique": 22979.0,
+    "top": 0.999991,
+    "freq": 9.0
+  },
+  "swap_note": "Replaces vanilla desklib (ai-text-detector-v1.01) with academic-tuned variant (ai-text-detector-academic-v1.01) for the Stage 2 cross-family triangulation. Same backbone (microsoft/deberta-v3-large), same config (max_length=768, default truncation), different fine-tuning corpus."
+}

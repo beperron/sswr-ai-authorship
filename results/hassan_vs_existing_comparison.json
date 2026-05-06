@@ -1,0 +1,51 @@
+{
+  "Flesch Reading Ease": {
+    "pearson_r": 0.8870966659425648,
+    "n": 21569,
+    "hassan_mean": 14.6957044832862,
+    "existing_mean": 21.96969837482243,
+    "mean_diff": -7.273993891536229
+  },
+  "Flesch-Kincaid Grade": {
+    "pearson_r": 0.7578646429676764,
+    "n": 21569,
+    "hassan_mean": 17.06378088923919,
+    "existing_mean": 15.356151180510329,
+    "mean_diff": 1.7076297087288612
+  },
+  "Gunning FOG": {
+    "pearson_r": 0.7336597817399004,
+    "n": 21569,
+    "hassan_mean": 18.592014928833045,
+    "existing_mean": 18.526413837108233,
+    "mean_diff": 0.06560109172481177
+  },
+  "SMOG": {
+    "pearson_r": 0.7381081409514465,
+    "n": 21569,
+    "hassan_mean": 17.88671333858779,
+    "existing_mean": 16.441204905048046,
+    "mean_diff": 1.445508433539743
+  },
+  "Passive voice rate": {
+    "pearson_r": 0.45431973187298674,
+    "n": 21569,
+    "hassan_mean": 0.23130418656405025,
+    "existing_mean": 0.3557999445667444,
+    "mean_diff": -0.12449575800269416
+  },
+  "Hedge rate": {
+    "pearson_r": 0.7208878986854266,
+    "n": 21569,
+    "hassan_mean": 0.17472117390699612,
+    "existing_mean": 0.01308367651889758,
+    "mean_diff": 0.16163749738809854
+  },
+  "Nominalization rate": {
+    "pearson_r": 0.6599466439026319,
+    "n": 21569,
+    "hassan_mean": 0.042164671519310123,
+    "existing_mean": 0.08125989609608993,
+    "mean_diff": -0.0390952245767798
+  }
+}

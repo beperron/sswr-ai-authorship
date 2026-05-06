@@ -1,0 +1,25 @@
+{
+  "model_id": "pangram/editlens_roberta-large",
+  "device": "mps",
+  "window_tokens": 510,
+  "batch_size": 16,
+  "n_abstracts": 23778,
+  "n_windows_total": 45804,
+  "mean_windows_per_abstract": 1.9263184456220035,
+  "score_summary": {
+    "count": 23778.0,
+    "mean": 0.109871,
+    "std": 0.130094,
+    "min": 0.006402,
+    "25%": 0.031624,
+    "50%": 0.071843,
+    "75%": 0.139278,
+    "max": 0.999607
+  },
+  "bucket_distribution": {
+    "0": 22630,
+    "1": 774,
+    "3": 374
+  },
+  "elapsed_seconds": 2199.2603290081024
+}

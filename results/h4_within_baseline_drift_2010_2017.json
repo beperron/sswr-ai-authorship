@@ -1,0 +1,22 @@
+{
+  "calibration_window": "2010-2017",
+  "spec": "abstract-level OLS of detector score on year (centered at 2010) and log(text_wc), year-clustered SEs",
+  "EditLens_RoBERTa_large": {
+    "n": 7380,
+    "beta_year": 0.0006498092987780819,
+    "se_year": 0.000145341098586569,
+    "p_year": 7.788163948000965e-06,
+    "beta_log_wc": -0.030725284795525026,
+    "mean_score_2010": 0.03537541856565936,
+    "mean_score_2017": 0.04016503423069344
+  },
+  "desklib_academic": {
+    "n": 7380,
+    "beta_year": 0.0071408529417883075,
+    "se_year": 0.001435992092840876,
+    "p_year": 6.600424561649061e-07,
+    "beta_log_wc": -0.19271614736878687,
+    "mean_score_2010": 0.6236804773065854,
+    "mean_score_2017": 0.6712571348064769
+  }
+}
