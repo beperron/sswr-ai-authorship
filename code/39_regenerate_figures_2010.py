@@ -121,11 +121,12 @@ ax.axvspan(2010, 2017, color="#f3f3f3", alpha=0.55, zorder=0)
 ax.axvspan(2023.5, 2024.5, color="#FFE8C7", alpha=0.55, zorder=0)
 ax.axvspan(2024.5, 2026.5, color="#FFCC8A", alpha=0.55, zorder=0)
 
-# Era legend with ChatGPT date folded into the partial-exposure label
-# (so we don't need a separate vertical reference line + arrow callout)
+# Era legend — only the two exposure bands. The gray calibration window
+# is labeled inline (below) rather than in the legend, because gray would
+# misleadingly imply the entire no-exposure span (conf 2010–2023) is gray
+# when only conf 2010–2017 (the calibration window) is gray; conf 2017–2023
+# is unshaded white.
 legend_handles = [
-    mpatches.Patch(facecolor="#f3f3f3", edgecolor="#bbbbbb",
-                   label="No LLM exposure  (conf 2010–2023)"),
     mpatches.Patch(facecolor="#FFE8C7", edgecolor="#bbbbbb",
                    label="Partial exposure  (conf 2024; ChatGPT released Nov 2022)"),
     mpatches.Patch(facecolor="#FFCC8A", edgecolor="#bbbbbb",
@@ -144,11 +145,15 @@ era_legend.get_frame().set_linewidth(0.8)
 # data points.
 ax.axhline(5.0, color="#999999", lw=0.9, ls=":", zorder=1)
 
-# 5% baseline label — broken across two lines so the second line clears
-# the Grammarly reference line at x=2016.
-ax.text(2013.5, 15,
-        "5% calibration baseline\n(P95 of 2010–2017 by construction)",
+# Inline label sitting inside the gray band — names what gray means.
+# Replaces the legend entry the gray band used to have.
+ax.text(2013.5, 55, "Calibration window\n(conf 2010–2017)",
         ha="center", va="center", fontsize=11, color="#666666", style="italic")
+
+# 5% threshold label, anchored at the right edge directly above the dotted
+# line so the line itself acts as the visual leader (no arrow needed).
+ax.text(2030.3, 6.5, "5 % P95 threshold",
+        ha="right", va="bottom", fontsize=11, color="#666666", style="italic")
 
 # Grammarly freemium launch — single vertical reference line at conf 2016
 # (the first SSWR cycle whose April 2015 submission deadline could plausibly
