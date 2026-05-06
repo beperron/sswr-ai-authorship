@@ -367,10 +367,18 @@ for metric, row in res_pivot.iterrows():
     ax.scatter([x_h], [y], s=140, color=BUCKET_HUMAN, edgecolor="white", linewidth=1.6, zorder=5)
     ax.scatter([x_l], [y], s=170, color=LOW,          edgecolor="white", linewidth=1.8, zorder=5)
     ax.scatter([x_f], [y], s=170, color=FULL,         edgecolor="white", linewidth=1.8, zorder=5)
-    ax.text(x_f + (0.08 if x_f >= 0 else -0.08), y + 0.30,
-            f"{x_f:+.2f}",
-            ha="left" if x_f >= 0 else "right",
-            va="bottom", fontsize=12, color=FULL, fontweight="bold")
+    # Inline numeric label for the fully-AI-generated bucket: placed just past
+    # the end of that bucket's CI whisker on the same y-row as the dot, so the
+    # label is visually attached to the data and does not float into the
+    # inter-row gap or collide with the band-corner banners.
+    lo_f, hi_f = res_ci[(metric, "Fully AI-generated")]
+    if x_f >= 0:
+        label_x, label_ha = hi_f + 0.05, "left"
+    else:
+        label_x, label_ha = lo_f - 0.05, "right"
+    ax.text(label_x, y, f"{x_f:+.2f}",
+            ha=label_ha, va="center",
+            fontsize=11.5, color=FULL, fontweight="bold", zorder=6)
 
 ax.set_yticks(list(y_positions.values()))
 ax.set_yticklabels(list(y_positions.keys()), fontsize=13, color="#222222")
@@ -391,7 +399,7 @@ ax.text(xhi - 0.05, n_worse - 0.55, "Higher = Worse Quality",
         bbox=dict(boxstyle="round,pad=0.35", facecolor="white",
                   edgecolor="#ef9a9a", lw=0.9))
 
-ax.set_xlabel("Effect size (SD units relative to 2010–2017 pre-LLM baseline)",
+ax.set_xlabel("Effect size (SD units relative to 2010–2015 pre-LLM baseline)",
               fontsize=14, color="#222222", labelpad=10)
 ax.tick_params(axis="x", labelsize=12, color=AXIS_GRAY, labelcolor="#222222")
 ax.grid(axis="x", color=GRID, lw=0.7, zorder=0)
