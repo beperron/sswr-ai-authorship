@@ -109,9 +109,9 @@ detectors = [
 # others (82.9), so leave it at its actual y; RoBERTa (56.1) and desklib (55.3)
 # are very close, so push them apart.
 end_label_offset = {
-    "EditLens RoBERTa-large":  +5.5,
+    "EditLens RoBERTa-large":  -5.5,
     "EditLens Llama-3.2-3B":    0.0,
-    "desklib academic":        -5.5,
+    "desklib academic":        +5.5,
 }
 
 fig, ax = plt.subplots(figsize=(13.5, 8.0), dpi=160)
@@ -148,8 +148,8 @@ ax.axhline(5.0, color="#999999", lw=0.9, ls=":", zorder=1)
 # Inline label sitting inside the gray band — names what gray means.
 # Replaces the legend entry the gray band used to have. Aligned vertically
 # with the EditLens Llama-3.2-3B end label (~y=83) for visual balance.
-ax.text(2013.5, 80, "Calibration window (conf 2010–2017)",
-        ha="center", va="center", fontsize=11, color="black", style="italic")
+ax.text(2013.5, 82.9, "Calibration window (conf 2010–2017)",
+        ha="center", va="center", fontsize=13, color="black", style="italic")
 
 # 5% threshold label, anchored at the right edge directly above the dotted
 # line so the line itself acts as the visual leader (no arrow needed).
