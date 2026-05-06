@@ -25,7 +25,7 @@ from pathlib import Path
 import textstat, spacy
 from tqdm import tqdm
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 print("Loading spaCy...")
 nlp = spacy.load("en_core_web_sm", disable=["ner"])
 nlp.max_length = 200_000

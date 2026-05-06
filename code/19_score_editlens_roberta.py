@@ -48,7 +48,7 @@ def editlens_clean_text(t: str) -> str:
     t = _normalize_whitespace(t)
     return t
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 MODEL_ID = "pangram/editlens_roberta-large"
 OUT  = ROOT / "data" / "scores_editlens_roberta.pkl"
 META = ROOT / "logs" / "19_editlens_roberta_scoring.json"

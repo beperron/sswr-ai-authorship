@@ -13,7 +13,7 @@ from pathlib import Path
 import ruptures as rpt
 from scipy.stats import mannwhitneyu
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 agg_full = pd.read_csv(ROOT / "results" / "yearly_aggregates.csv")
 # Restrict changepoint search to 2009+ since 2008-2009 format break is a known
 # non-LLM artifact already accounted for in calibration window.

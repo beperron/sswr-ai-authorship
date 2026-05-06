@@ -18,7 +18,7 @@ from tqdm import tqdm
 from safetensors.torch import load_file
 from huggingface_hub import hf_hub_download
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 MODEL_ID = "desklib/ai-text-detector-academic-v1.01"
 OUT_PKL  = ROOT / "data" / "scores_primary_academic.pkl"
 CKPT     = ROOT / "checkpoints" / "scores_primary_academic_partial.pkl"

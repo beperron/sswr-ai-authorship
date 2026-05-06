@@ -24,7 +24,7 @@ import pandas as pd, numpy as np, json
 import statsmodels.api as sm
 from pathlib import Path
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 RES  = ROOT / "results"
 
 edl_r = pd.read_pickle(ROOT/"data"/"scores_editlens_roberta.pkl")[

@@ -14,7 +14,7 @@ calibrate/labels.  Uses position_normalized; collapses to:
 import pandas as pd
 from pathlib import Path
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 authors = pd.read_csv(ROOT / "data" / "sswr_paper_authors.csv", dtype=str,
                       keep_default_na=False)
 firsts = authors[authors["author_order"] == "1"][["paper_id", "position_normalized"]]

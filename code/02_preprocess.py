@@ -17,7 +17,7 @@ import pandas as pd
 import unicodedata, re
 from pathlib import Path
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 df = pd.read_pickle(ROOT / "data" / "corpus_filtered.pkl")
 
 QUOTES = {"‘": "'", "’": "'", "“": '"', "”": '"'}

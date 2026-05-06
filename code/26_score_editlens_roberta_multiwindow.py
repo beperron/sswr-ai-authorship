@@ -40,7 +40,7 @@ def _aih(t):
 def editlens_clean(t):
     return _ws(_think(_aih(t)).lower())
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 MODEL_ID = "pangram/editlens_roberta-large"
 OUT  = ROOT / "data" / "scores_editlens_roberta_mw.pkl"
 META = ROOT / "logs" / "26_editlens_roberta_mw.json"

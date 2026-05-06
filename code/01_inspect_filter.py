@@ -20,7 +20,7 @@ import re
 import json
 from pathlib import Path
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 RAW = ROOT / "data" / "sswr_papers.csv"
 OUT = ROOT / "data" / "corpus_filtered.pkl"
 LOG = ROOT / "logs" / "01_filter_log.json"

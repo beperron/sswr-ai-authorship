@@ -21,7 +21,7 @@ import pandas as pd, numpy as np, json
 from pathlib import Path
 from collections import defaultdict
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 RES  = ROOT / "results"
 
 # ---- Load detector-scored corpus (same as main analysis) ----

@@ -32,7 +32,7 @@ import statsmodels.api as sm
 from pathlib import Path
 from sklearn.metrics import cohen_kappa_score
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 RES  = ROOT / "results"
 
 CAL_LO, CAL_HI = 2010, 2015

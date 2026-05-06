@@ -15,7 +15,7 @@ import pandas as pd, numpy as np, json
 import statsmodels.api as sm
 from pathlib import Path
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 OUT  = ROOT / "results" / "robustness.json"
 df = pd.read_pickle(ROOT / "data" / "scores_labeled.pkl")
 df["score_primary"] = pd.to_numeric(df["score_primary"], errors="coerce")

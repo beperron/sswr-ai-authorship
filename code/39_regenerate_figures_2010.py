@@ -14,7 +14,7 @@ from matplotlib import patches as mpatches
 from scipy.stats import gaussian_kde
 from pathlib import Path
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 OUT  = ROOT / "results" / "figures"
 OUT.mkdir(parents=True, exist_ok=True)
 

@@ -32,7 +32,7 @@ import pandas as pd
 import numpy as np
 from scipy.stats import pearsonr
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 sys.path.insert(0, str(ROOT / "code"))
 
 # Import the Hassan analyzer functions we need

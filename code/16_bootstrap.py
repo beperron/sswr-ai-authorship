@@ -10,7 +10,7 @@ import pandas as pd, numpy as np, json
 import statsmodels.api as sm
 from pathlib import Path
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 agg = pd.read_csv(ROOT / "results" / "yearly_aggregates.csv")
 N_BOOT = 2000
 RNG = np.random.default_rng(0)

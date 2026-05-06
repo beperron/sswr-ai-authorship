@@ -62,7 +62,7 @@ def editlens_clean_text(t: str) -> str:
     t = _normalize_whitespace(t)
     return t
 
-ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
+ROOT = Path(__file__).resolve().parent.parent  # repo root
 ADAPTER_ID = "pangram/editlens_Llama-3.2-3B"
 BASE_ID    = "meta-llama/Llama-3.2-3B"
 OUT  = ROOT / "data" / "scores_editlens_llama.pkl"
