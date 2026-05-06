@@ -34,7 +34,7 @@ FULL      = "#D55E00"
 GRID      = "#ececec"
 AXIS_GRAY = "#bbbbbb"
 
-CAL_LO, CAL_HI = 2010, 2017
+CAL_LO, CAL_HI = 2010, 2015
 ANALYTIC_LO    = 2010
 
 # ---- Load detector scores + apply locked P95 thresholds ----------------
@@ -68,7 +68,7 @@ cal = df[(df.year>=CAL_LO)&(df.year<=CAL_HI)]
 P95_e = float(np.quantile(cal.score_editlens,       0.95))
 P95_l = float(np.quantile(cal.score_editlens_llama, 0.95))
 P95_d = float(np.quantile(cal.score_primary,        0.95))
-print(f"P95 thresholds (2010-2017 baseline):")
+print(f"P95 thresholds ({CAL_LO}-{CAL_HI} baseline):")
 print(f"  EditLens RoBERTa-large = {P95_e:.4f}")
 print(f"  EditLens Llama-3.2-3B  = {P95_l:.4f}")
 print(f"  desklib                = {P95_d:.4f}")
@@ -77,11 +77,11 @@ df["bin_e"] = (df.score_editlens       >= P95_e).astype(int)
 df["bin_l"] = (df.score_editlens_llama >= P95_l).astype(int)
 df["bin_d"] = (df.score_primary        >= P95_d).astype(int)
 
-# Standardize FRE on 2010-2017 baseline
+# Standardize FRE on the calibration window
 fre_mean = float(cal.flesch_reading_ease.mean())
 fre_sd   = float(cal.flesch_reading_ease.std())
 df["fre_z"] = (df.flesch_reading_ease - fre_mean) / fre_sd
-print(f"FRE 2010-2017 baseline: mean = {fre_mean:.2f}, sd = {fre_sd:.2f}")
+print(f"FRE {CAL_LO}-{CAL_HI} baseline: mean = {fre_mean:.2f}, sd = {fre_sd:.2f}")
 
 # ====================================================================
 # Figure 1: yearly_three_detector_lines.png
@@ -117,7 +117,7 @@ end_label_offset = {
 fig, ax = plt.subplots(figsize=(13.5, 8.0), dpi=160)
 
 # Era shading
-ax.axvspan(2010, 2017, color="#f3f3f3", alpha=0.55, zorder=0)
+ax.axvspan(2010, 2015, color="#f3f3f3", alpha=0.55, zorder=0)
 ax.axvspan(2023.5, 2024.5, color="#FFE8C7", alpha=0.55, zorder=0)
 ax.axvspan(2024.5, 2026,   color="#FFCC8A", alpha=0.55, zorder=0)
 
@@ -148,7 +148,7 @@ ax.axhline(5.0, color="#999999", lw=0.9, ls=":", zorder=1)
 # Inline label sitting inside the gray band — names what gray means.
 # Replaces the legend entry the gray band used to have. Aligned vertically
 # with the EditLens Llama-3.2-3B end label (~y=83) for visual balance.
-ax.text(2013.5, 82.9, "Calibration window (conf 2010–2017)",
+ax.text(2012.5, 82.9, "Calibration window (conf 2010–2015)",
         ha="center", va="center", fontsize=13, color="black", style="italic")
 
 # 5% threshold label, anchored at the right edge directly above the dotted
@@ -190,7 +190,7 @@ ax.set_xlabel("Conference year (April year − 1 = submission deadline)",
               fontsize=14, color="#222222", labelpad=12)
 ax.set_ylim(0, 100)
 ax.set_yticks([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
-ax.set_ylabel("% of abstracts above 2010–2017 calibrated P95",
+ax.set_ylabel("% of abstracts above 2010–2015 calibrated P95",
               fontsize=14, color="#222222")
 ax.tick_params(axis="both", labelsize=12, color="#999999", labelcolor="#222222")
 ax.grid(axis="y", color=GRID, lw=0.7, zorder=0)
@@ -255,7 +255,7 @@ era_legend = ax.legend(handles=era_handles, loc="upper right",
 era_legend.get_frame().set_linewidth(0.8)
 
 # Y axis
-ax.set_ylabel("Flesch Reading Ease (SD units, 2010–2017 baseline)",
+ax.set_ylabel("Flesch Reading Ease (SD units, 2010–2015 baseline)",
               fontsize=14, color="#222222")
 ax.set_ylim(-1.9, 0.55)
 ax.set_yticks([-1.5, -1.0, -0.5, 0.0, 0.5])

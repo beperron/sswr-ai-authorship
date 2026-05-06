@@ -192,3 +192,19 @@ truncation regime. The cross-detector comparison is the only thing affected.
 **What this does NOT change.** Calibration window (2010–2017), analytic window (2010–2026), intervention point (April 2024 deadline / conf 2025), smallest effect of interest, multiple-comparisons correction, or the family-wise α level.
 
 ---
+
+## Deviation 10 — 2026-05-06 — Calibration window narrowed to 2010–2015
+
+**Previous.** Calibration window = conf 2010–2017 (per Deviation 2).
+
+**Updated.** Calibration window = conf 2010–2015. *N* = 4,460 abstracts.
+
+**Rationale.** Grammarly's freemium product launched in May 2015. The April 2016 submission deadline (conf 2017) is therefore the first SSWR cycle whose abstracts could plausibly carry Grammarly-style polish. The pre-Deviation-2 reasoning treated 2010–2017 as a uniform pre-LLM baseline, but Grammarly's mass-market editing tool is now understood to plausibly contaminate the 2017 cycle. Tightening the calibration to 2010–2015 ensures the locked baseline predates plausible Grammarly contamination at the upper end of the window. The lower bound (2010) is unchanged from Deviation 2.
+
+**What this changes.** All P95 thresholds, the H1 segmented-regression step, H2/H3 DiD coefficients, country DiD coefficients, prior-submissions cohort coefficients, and the H4 within-baseline drift estimates are recomputed. The qualitative conclusions are preserved: every headline result moves by less than 2 pp on every detector. One quantitative shift is interpretively notable: the EditLens RoBERTa-large within-baseline drift (H4) becomes statistically indistinguishable from zero under the tighter window (β = +0.000386, *p* = .18) where it was significant under the wider window (β = +0.000650, *p* < .0001). This strengthens the falsification check on the primary detector.
+
+**What this does NOT change.** Analytic window (2010–2026), intervention point (April 2024 deadline / conf 2025), corpus inclusion criteria, detector models, smallest effect of interest, or the multiple-comparisons family.
+
+**Sensitivity reference.** The 2010–2017 window is retained as a sensitivity check; numbers reported in `results/sensitivity_calibration_2010_2015.json` and the parallel `_2010_2017_calibration` JSONs.
+
+---

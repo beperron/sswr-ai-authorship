@@ -1,0 +1,12 @@
+{
+  "calibration_window": [
+    2010,
+    2015
+  ],
+  "hassan_n": 4460,
+  "hassan_fre_mean": 16.054854260089687,
+  "hassan_fre_sd": 10.051136976488387,
+  "textstat_n": 4460,
+  "textstat_fre_mean": 23.023611808692063,
+  "textstat_fre_sd": 10.382757646423633
+}

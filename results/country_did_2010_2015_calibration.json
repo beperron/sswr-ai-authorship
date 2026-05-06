@@ -1,0 +1,176 @@
+{
+  "spec": "DiD on no-exposure (conf 2010-2023) vs full-exposure (conf 2025-2026); partial 2024 dropped; year-clustered SEs; US = reference; P95 thresholds calibrated on conf 2010-2015.",
+  "calibration_window": "2010-2015",
+  "P95_thresholds": {
+    "EditLens_R": 0.10513949543237688,
+    "EditLens_Llama": 0.05610698610544206,
+    "desklib_acad": 0.9986650079488755
+  },
+  "reference_category": "US",
+  "cells": {
+    "EditLens_RoBERTa_large": {
+      "US": {
+        "no_exposure": {
+          "n": 14916,
+          "pct_above_P95": 8.39
+        },
+        "partial": {
+          "n": 1309,
+          "pct_above_P95": 19.33
+        },
+        "full": {
+          "n": 3180,
+          "pct_above_P95": 44.81
+        }
+      },
+      "Other_Anglophone": {
+        "no_exposure": {
+          "n": 612,
+          "pct_above_P95": 9.48
+        },
+        "partial": {
+          "n": 65,
+          "pct_above_P95": 27.69
+        },
+        "full": {
+          "n": 121,
+          "pct_above_P95": 53.72
+        }
+      },
+      "Non_Anglophone": {
+        "no_exposure": {
+          "n": 818,
+          "pct_above_P95": 3.3
+        },
+        "partial": {
+          "n": 131,
+          "pct_above_P95": 17.56
+        },
+        "full": {
+          "n": 362,
+          "pct_above_P95": 51.66
+        }
+      }
+    },
+    "desklib_academic": {
+      "US": {
+        "no_exposure": {
+          "n": 14916,
+          "pct_above_P95": 6.36
+        },
+        "partial": {
+          "n": 1309,
+          "pct_above_P95": 14.21
+        },
+        "full": {
+          "n": 3180,
+          "pct_above_P95": 44.43
+        }
+      },
+      "Other_Anglophone": {
+        "no_exposure": {
+          "n": 612,
+          "pct_above_P95": 5.88
+        },
+        "partial": {
+          "n": 65,
+          "pct_above_P95": 20.0
+        },
+        "full": {
+          "n": 121,
+          "pct_above_P95": 40.5
+        }
+      },
+      "Non_Anglophone": {
+        "no_exposure": {
+          "n": 818,
+          "pct_above_P95": 2.81
+        },
+        "partial": {
+          "n": 131,
+          "pct_above_P95": 19.08
+        },
+        "full": {
+          "n": 362,
+          "pct_above_P95": 60.5
+        }
+      }
+    },
+    "EditLens_Llama_3_2_3B": {
+      "US": {
+        "no_exposure": {
+          "n": 14916,
+          "pct_above_P95": 14.92
+        },
+        "partial": {
+          "n": 1309,
+          "pct_above_P95": 49.58
+        },
+        "full": {
+          "n": 3180,
+          "pct_above_P95": 74.65
+        }
+      },
+      "Other_Anglophone": {
+        "no_exposure": {
+          "n": 612,
+          "pct_above_P95": 22.55
+        },
+        "partial": {
+          "n": 65,
+          "pct_above_P95": 63.08
+        },
+        "full": {
+          "n": 121,
+          "pct_above_P95": 75.21
+        }
+      },
+      "Non_Anglophone": {
+        "no_exposure": {
+          "n": 818,
+          "pct_above_P95": 16.75
+        },
+        "partial": {
+          "n": 131,
+          "pct_above_P95": 58.02
+        },
+        "full": {
+          "n": 362,
+          "pct_above_P95": 85.64
+        }
+      }
+    }
+  },
+  "did_full_vs_no_exposure": {
+    "EditLens_RoBERTa_large": {
+      "other_anglophone_x_full_pp": 7.817530342024967,
+      "other_ang_ci95_lo_pp": 2.8145812990686263,
+      "other_ang_ci95_hi_pp": 12.82047938498131,
+      "other_ang_p": 0.0021941638009734064,
+      "non_anglophone_x_full_pp": 11.932371327771577,
+      "non_ang_ci95_lo_pp": 9.35781235127449,
+      "non_ang_ci95_hi_pp": 14.506930304268664,
+      "non_ang_p": 1.0475933981352663e-19
+    },
+    "desklib_academic": {
+      "other_anglophone_x_full_pp": -3.4581519151449442,
+      "other_ang_ci95_lo_pp": -5.506463860904012,
+      "other_ang_ci95_hi_pp": -1.4098399693858756,
+      "other_ang_p": 0.0009363163660676701,
+      "non_anglophone_x_full_pp": 19.613834885176278,
+      "non_ang_ci95_lo_pp": 10.291732783338292,
+      "non_ang_ci95_hi_pp": 28.935936987014266,
+      "non_ang_p": 3.726854867111752e-05
+    },
+    "EditLens_Llama_3_2_3B": {
+      "other_anglophone_x_full_pp": -7.0796282949360565,
+      "other_ang_ci95_lo_pp": -13.359354971065668,
+      "other_ang_ci95_hi_pp": -0.7999016188064436,
+      "other_ang_p": 0.02713147060365623,
+      "non_anglophone_x_full_pp": 9.149972599512553,
+      "non_ang_ci95_lo_pp": 5.260283844540113,
+      "non_ang_ci95_hi_pp": 13.039661354484993,
+      "non_ang_p": 4.015989382673737e-06
+    }
+  }
+}

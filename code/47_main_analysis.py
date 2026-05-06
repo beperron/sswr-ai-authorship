@@ -1,10 +1,11 @@
 """
 Main analysis script. Computes the Stage 2 numbers reported in the manuscript:
-P95 thresholds on the locked 2010-2017 calibration window, yearly above-threshold
-proportions, the H1 segmented-regression step at conf 2025, Cohen's kappa
-between detectors, and Pearson r between continuous detector scores. Uses the
-academic-tuned desklib variant (desklib/ai-text-detector-academic-v1.01) as
-the cross-family detector, per Deviation 9 in logs/PROTOCOL_DEVIATIONS.md.
+P95 thresholds on the 2010-2015 calibration window (predates Grammarly's
+May 2015 freemium launch), yearly above-threshold proportions, the H1
+segmented-regression step at conf 2025, Cohen's kappa between detectors, and
+Pearson r between continuous detector scores. Uses the academic-tuned desklib
+variant (desklib/ai-text-detector-academic-v1.01) as the cross-family
+detector, per Deviation 9 in logs/PROTOCOL_DEVIATIONS.md.
 
 Reads:
   data/scores_editlens_roberta.pkl       (EditLens RoBERTa-large; primary; unchanged)
@@ -27,7 +28,7 @@ from sklearn.metrics import cohen_kappa_score
 ROOT = Path("/Users/beperron/Desktop/AI-SSWR")
 RES  = ROOT / "results"
 
-CAL_LO, CAL_HI = 2010, 2017
+CAL_LO, CAL_HI = 2010, 2015
 ANALYTIC_LO    = 2010
 
 # ---- Load ----

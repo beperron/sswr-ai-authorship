@@ -1,268 +1,200 @@
 {
-  "method_note": "For each abstract, the first author's canonical_author_id was looked up in the harmonized SSWR History Database, and prior_n was computed as the count of earlier (year < current_year) submissions by that canonical author across the full 2005-2026 archive. Buckets: new=0 prior, early=1-2 prior, established=3+ prior. Analytic window: conf 2010-2026.",
+  "method_note": "For each abstract, the first author's canonical_author_id was looked up in the harmonized SSWR History Database, and prior_n was computed as the count of earlier (year < current_year) submissions by that canonical author across the full archive. Buckets: new=0 prior, early=1-2 prior, established=3+ prior. Analytic window: conf 2010-2026. P95 thresholds calibrated on conf 2010-2015.",
+  "calibration_window": "2010-2015",
   "n_total": 21567,
   "P95": {
-    "EditLens_R": 0.10856929160654545,
-    "EditLens_Llama": 0.062271195277571564,
-    "desklib_acad": 0.9986288338899613
+    "EditLens_R": 0.10513949543237688,
+    "EditLens_Llama": 0.05610698610544206,
+    "desklib_acad": 0.9986650079488755
   },
   "rates_by_bucket_period": {
     "EditLens RoBERTa-large": [
       {
-        "bucket": "early",
-        "exposure": "full",
-        "n": 952,
-        "pct": 46.53
-      },
-      {
-        "bucket": "early",
-        "exposure": "no_exposure",
-        "n": 4965,
-        "pct": 7.37
-      },
-      {
-        "bucket": "early",
-        "exposure": "partial",
-        "n": 377,
-        "pct": 20.95
-      },
-      {
-        "bucket": "established",
-        "exposure": "full",
-        "n": 1707,
-        "pct": 42.3
-      },
-      {
-        "bucket": "established",
-        "exposure": "no_exposure",
-        "n": 6329,
-        "pct": 8.26
-      },
-      {
-        "bucket": "established",
-        "exposure": "partial",
-        "n": 723,
-        "pct": 16.6
-      },
-      {
-        "bucket": "new",
-        "exposure": "full",
-        "n": 1015,
-        "pct": 47.19
-      },
-      {
         "bucket": "new",
         "exposure": "no_exposure",
-        "n": 5086,
-        "pct": 7.04
+        "n": 5646,
+        "pct": 7.62
       },
       {
         "bucket": "new",
         "exposure": "partial",
-        "n": 413,
-        "pct": 20.34
+        "n": 463,
+        "pct": 20.52
+      },
+      {
+        "bucket": "new",
+        "exposure": "full",
+        "n": 1146,
+        "pct": 48.17
+      },
+      {
+        "bucket": "early",
+        "exposure": "no_exposure",
+        "n": 4750,
+        "pct": 7.77
+      },
+      {
+        "bucket": "early",
+        "exposure": "partial",
+        "n": 353,
+        "pct": 22.1
+      },
+      {
+        "bucket": "early",
+        "exposure": "full",
+        "n": 899,
+        "pct": 49.05
+      },
+      {
+        "bucket": "established",
+        "exposure": "no_exposure",
+        "n": 5984,
+        "pct": 9.02
+      },
+      {
+        "bucket": "established",
+        "exposure": "partial",
+        "n": 697,
+        "pct": 17.65
+      },
+      {
+        "bucket": "established",
+        "exposure": "full",
+        "n": 1629,
+        "pct": 42.23
       }
     ],
     "EditLens Llama-3.2-3B": [
       {
-        "bucket": "early",
-        "exposure": "full",
-        "n": 952,
-        "pct": 76.79
-      },
-      {
-        "bucket": "early",
-        "exposure": "no_exposure",
-        "n": 4965,
-        "pct": 12.45
-      },
-      {
-        "bucket": "early",
-        "exposure": "partial",
-        "n": 377,
-        "pct": 51.99
-      },
-      {
-        "bucket": "established",
-        "exposure": "full",
-        "n": 1707,
-        "pct": 71.06
-      },
-      {
-        "bucket": "established",
-        "exposure": "no_exposure",
-        "n": 6329,
-        "pct": 15.06
-      },
-      {
-        "bucket": "established",
-        "exposure": "partial",
-        "n": 723,
-        "pct": 47.16
-      },
-      {
-        "bucket": "new",
-        "exposure": "full",
-        "n": 1015,
-        "pct": 75.86
-      },
-      {
         "bucket": "new",
         "exposure": "no_exposure",
-        "n": 5086,
-        "pct": 10.97
+        "n": 5646,
+        "pct": 13.14
       },
       {
         "bucket": "new",
         "exposure": "partial",
-        "n": 413,
-        "pct": 43.83
+        "n": 463,
+        "pct": 49.46
+      },
+      {
+        "bucket": "new",
+        "exposure": "full",
+        "n": 1146,
+        "pct": 77.84
+      },
+      {
+        "bucket": "early",
+        "exposure": "no_exposure",
+        "n": 4750,
+        "pct": 14.51
+      },
+      {
+        "bucket": "early",
+        "exposure": "partial",
+        "n": 353,
+        "pct": 55.24
+      },
+      {
+        "bucket": "early",
+        "exposure": "full",
+        "n": 899,
+        "pct": 79.2
+      },
+      {
+        "bucket": "established",
+        "exposure": "no_exposure",
+        "n": 5984,
+        "pct": 17.96
+      },
+      {
+        "bucket": "established",
+        "exposure": "partial",
+        "n": 697,
+        "pct": 49.5
+      },
+      {
+        "bucket": "established",
+        "exposure": "full",
+        "n": 1629,
+        "pct": 72.56
       }
     ],
     "desklib academic": [
       {
-        "bucket": "early",
-        "exposure": "full",
-        "n": 952,
-        "pct": 50.0
-      },
-      {
-        "bucket": "early",
-        "exposure": "no_exposure",
-        "n": 4965,
-        "pct": 6.42
-      },
-      {
-        "bucket": "early",
-        "exposure": "partial",
-        "n": 377,
-        "pct": 16.98
-      },
-      {
-        "bucket": "established",
-        "exposure": "full",
-        "n": 1707,
-        "pct": 43.23
-      },
-      {
-        "bucket": "established",
-        "exposure": "no_exposure",
-        "n": 6329,
-        "pct": 6.89
-      },
-      {
-        "bucket": "established",
-        "exposure": "partial",
-        "n": 723,
-        "pct": 16.18
-      },
-      {
-        "bucket": "new",
-        "exposure": "full",
-        "n": 1015,
-        "pct": 47.78
-      },
-      {
         "bucket": "new",
         "exposure": "no_exposure",
-        "n": 5086,
-        "pct": 5.47
+        "n": 5646,
+        "pct": 5.51
       },
       {
         "bucket": "new",
         "exposure": "partial",
-        "n": 413,
-        "pct": 12.35
+        "n": 463,
+        "pct": 12.74
+      },
+      {
+        "bucket": "new",
+        "exposure": "full",
+        "n": 1146,
+        "pct": 47.73
+      },
+      {
+        "bucket": "early",
+        "exposure": "no_exposure",
+        "n": 4750,
+        "pct": 6.25
+      },
+      {
+        "bucket": "early",
+        "exposure": "partial",
+        "n": 353,
+        "pct": 16.15
+      },
+      {
+        "bucket": "early",
+        "exposure": "full",
+        "n": 899,
+        "pct": 50.95
+      },
+      {
+        "bucket": "established",
+        "exposure": "no_exposure",
+        "n": 5984,
+        "pct": 6.75
+      },
+      {
+        "bucket": "established",
+        "exposure": "partial",
+        "n": 697,
+        "pct": 15.78
+      },
+      {
+        "bucket": "established",
+        "exposure": "full",
+        "n": 1629,
+        "pct": 41.87
       }
     ]
   },
-  "did_full_vs_no_reference_established": {
-    "EditLens RoBERTa-large": {
-      "new_x_full": {
-        "coef_pp": 6.12,
-        "se_pp": 1.66,
-        "p": 0.00023235669681303484,
-        "ci95_pp": [
-          2.86,
-          9.38
-        ]
-      },
-      "early_x_full": {
-        "coef_pp": 5.13,
-        "se_pp": 0.84,
-        "p": 9.01388583835638e-10,
-        "ci95_pp": [
-          3.49,
-          6.77
-        ]
-      },
-      "full": {
-        "coef_pp": 34.03,
-        "se_pp": 8.42,
-        "p": 5.328309124451409e-05,
-        "ci95_pp": [
-          17.52,
-          50.54
-        ]
-      }
+  "did_new_vs_established": {
+    "EditLens_RoBERTa_large": {
+      "new_x_full_pp": 7.341092409616773,
+      "ci95_lo_pp": 3.0641812489560936,
+      "ci95_hi_pp": 11.618003570277452,
+      "p": 0.0007677290282370203
     },
-    "EditLens Llama-3.2-3B": {
-      "new_x_full": {
-        "coef_pp": 8.89,
-        "se_pp": 0.84,
-        "p": 2.534838590397111e-26,
-        "ci95_pp": [
-          7.25,
-          10.53
-        ]
-      },
-      "early_x_full": {
-        "coef_pp": 8.34,
-        "se_pp": 1.58,
-        "p": 1.4261704846014297e-07,
-        "ci95_pp": [
-          5.23,
-          11.44
-        ]
-      },
-      "full": {
-        "coef_pp": 56.0,
-        "se_pp": 7.07,
-        "p": 2.295118246394558e-15,
-        "ci95_pp": [
-          42.15,
-          69.85
-        ]
-      }
+    "EditLens_Llama_3_2_3B": {
+      "new_x_full_pp": 10.098623189310421,
+      "ci95_lo_pp": 8.11253240662813,
+      "ci95_hi_pp": 12.084713971992713,
+      "p": 2.1518472170510215e-23
     },
-    "desklib academic": {
-      "new_x_full": {
-        "coef_pp": 5.97,
-        "se_pp": 0.47,
-        "p": 1.952048935535262e-37,
-        "ci95_pp": [
-          5.06,
-          6.89
-        ]
-      },
-      "early_x_full": {
-        "coef_pp": 7.23,
-        "se_pp": 1.41,
-        "p": 2.704744308354856e-07,
-        "ci95_pp": [
-          4.47,
-          9.99
-        ]
-      },
-      "full": {
-        "coef_pp": 36.34,
-        "se_pp": 9.68,
-        "p": 0.00017379960638227784,
-        "ci95_pp": [
-          17.37,
-          55.32
-        ]
-      }
+    "desklib_academic": {
+      "new_x_full_pp": 7.108075945552164,
+      "ci95_lo_pp": 5.482509762851262,
+      "ci95_hi_pp": 8.733642128253067,
+      "p": 1.032251724855745e-17
     }
   }
 }
