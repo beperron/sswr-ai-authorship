@@ -147,22 +147,27 @@ ax.axhline(5.0, color="#999999", lw=0.9, ls=":", zorder=1)
 
 # Inline label sitting inside the gray band — names what gray means.
 # Replaces the legend entry the gray band used to have.
-ax.text(2013.5, 55, "Calibration window\n(conf 2010–2017)",
-        ha="center", va="center", fontsize=11, color="#666666", style="italic")
+ax.text(2013.5, 65, "Calibration window\n(conf 2010–2017)",
+        ha="center", va="center", fontsize=11, color="black", style="italic")
 
 # 5% threshold label, anchored at the right edge directly above the dotted
 # line so the line itself acts as the visual leader (no arrow needed).
 ax.text(2030.3, 6.5, "5 % P95 threshold",
         ha="right", va="bottom", fontsize=11, color="#666666", style="italic")
 
-# Grammarly freemium launch — single vertical reference line at conf 2016
-# (the first SSWR cycle whose April 2015 submission deadline could plausibly
-# carry Grammarly polish; freemium product launched calendar 2015).
-# Stops short of the legend area at the top.
-ax.vlines(2016, 0, 78, colors="#404040", linestyles="--",
+# Grammarly freemium launch — vertical reference line placed at the
+# calendar-time position of May 2015 on the conference-year axis (rather
+# than aligning to a specific SSWR cycle). A filled marker on the line at
+# y=20 anchors the inline label, which sits to the left of the line and
+# terminates at the marker.
+GRAMMARLY_X = 2015.4   # ≈ May 2015 on a year-decimal axis
+ax.vlines(GRAMMARLY_X, 0, 78, colors="#404040", linestyles="--",
           linewidth=1.0, alpha=0.85, zorder=2)
-ax.text(2016.15, 79, "Grammarly freemium launch (May 2015)",
-        ha="left", va="bottom", fontsize=11, color="#404040")
+ax.plot([GRAMMARLY_X], [20], marker="o", color="#404040", markersize=8,
+        markeredgecolor="white", markeredgewidth=1.0, zorder=3,
+        linestyle="none")
+ax.text(GRAMMARLY_X - 0.08, 20, "Grammarly freemium launch (May 2015)",
+        ha="right", va="center", fontsize=11, color="#404040")
 
 # Plot lines
 for name, ys, color in detectors:
